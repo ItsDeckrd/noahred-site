@@ -3,203 +3,117 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Noah Red - Y2K Neon Drift</title>
+  <title>Noah Red - Y2K Landing</title>
   <style>
+    /* Reset & font */
     * { margin:0; padding:0; box-sizing:border-box; font-family:'Verdana','Arial',sans-serif; }
 
     body {
+      height: 100vh;
       overflow: hidden;
-      min-height: 100vh;
-      background:#0a001a;
-      color:#fff;
+      background: linear-gradient(135deg, #0b0033, #330066);
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
       position: relative;
     }
 
-    /* Video background */
-    #bg-video {
-      position: fixed;
-      top:0;
-      left:0;
-      width:100%;
-      height:100%;
-      object-fit:cover;
-      z-index:-2;
-      filter: brightness(0.5) contrast(1.2);
-    }
-
-    /* Overlay for depth & glow */
-    #overlay {
-      position: fixed;
-      top:0;
-      left:0;
-      width:100%;
-      height:100%;
-      background: rgba(5,5,25,0.35);
-      backdrop-filter: blur(1.5px);
+    /* Background glow shapes */
+    body::before, body::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(120px);
       z-index: -1;
     }
 
-    /* Header nav */
-    header {
-      position:absolute;
-      top:20px;
-      right:20px;
-      z-index:3;
+    body::before {
+      width: 500px;
+      height: 500px;
+      background: #ff00ff;
+      top: -100px;
+      left: -100px;
     }
 
-    nav a {
-      margin-left:20px;
-      text-decoration:none;
-      color:#00ffea;
-      font-weight:bold;
-      text-shadow:0 0 10px #00ffea;
-      transition:0.3s;
+    body::after {
+      width: 700px;
+      height: 700px;
+      background: #00ffff;
+      bottom: -150px;
+      right: -150px;
     }
 
-    nav a:hover {
-      color:#66fff9;
-      text-shadow:0 0 18px #66fff9;
+    /* Main content */
+    .container {
+      z-index: 2;
+      max-width: 600px;
+      padding: 2rem;
+      background: rgba(0,0,0,0.3);
+      border: 2px solid #00ffff;
+      border-radius: 20px;
+      box-shadow: 0 0 30px #00ffff, 0 0 60px #ff00ff;
     }
 
-    /* Floating text container */
-    #floating-text {
-      position:absolute;
-      left:50%;
-      top:50%;
-      transform: translate(-50%, -50%);
-      text-align:center;
-      z-index:2;
-      color:#ff00ff;
-      text-shadow: 0 0 14px #ff00ff, 0 0 28px #ff66ff;
+    h1 {
+      font-size: 4rem;
+      color: #ff66ff;
+      text-shadow: 0 0 10px #ff66ff, 0 0 20px #ff00ff;
+      margin-bottom: 0.5rem;
     }
 
-    #floating-text h1 {
-      font-size:4rem;
-      letter-spacing:2px;
+    h2 {
+      font-size: 2rem;
+      color: #00ffff;
+      text-shadow: 0 0 8px #00ffff, 0 0 16px #66ffff;
+      margin-bottom: 1rem;
     }
 
-    #floating-text h2 {
-      font-size:2rem;
-      color:#ff66ff;
-      margin-bottom:1em;
+    p.quote {
+      font-size: 1.5rem;
+      font-style: italic;
+      color: #ccffff;
+      margin-bottom: 1.5rem;
+      text-shadow: 0 0 6px #ccffff;
     }
 
-    #floating-text p.quote {
-      font-size:1.4rem;
-      font-style:italic;
-      color:#ff99ff;
-      margin:0.5em 0;
+    a.email-link {
+      font-size: 1.2rem;
+      color: #ff00ff;
+      text-decoration: underline;
+      font-weight: bold;
+      transition: 0.3s;
     }
 
-    #floating-text a.email-link {
-      color:#00ffff;
-      text-decoration:underline;
-      font-weight:500;
-      transition:0.3s;
+    a.email-link:hover {
+      color: #ff99ff;
+      text-shadow: 0 0 10px #ff99ff, 0 0 20px #ff00ff;
     }
 
-    #floating-text a.email-link:hover {
-      color:#66ffff;
-      text-shadow:0 0 10px #66ffff;
-    }
-
-    /* Footer (AI disclaimer) */
     footer {
-      position:absolute;
-      bottom:15px;
-      width:100%;
-      text-align:center;
-      font-size:0.85rem;
-      color:#ff66ff;
-      text-shadow:0 0 6px #ff66ff;
-      z-index:3;
+      position: absolute;
+      bottom: 15px;
+      width: 100%;
+      text-align: center;
+      font-size: 0.85rem;
+      color: #66ffff;
+      text-shadow: 0 0 4px #66ffff;
     }
   </style>
 </head>
 <body>
 
-  <!-- Video background -->
-  <video autoplay muted loop id="bg-video">
-    <source src="background.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-  </video>
-
-  <div id="overlay"></div>
-
-  <!-- Header / Menu -->
-  <header>
-    <nav>
-      <a href="#">Home</a>
-      <a href="#">About</a>
-      <a href="#">Projects</a>
-    </nav>
-  </header>
-
-  <!-- Floating main content -->
-  <div id="floating-text">
+  <div class="container">
     <h1>Noah Jackson</h1>
     <h2>Nickname: Deckrd</h2>
     <p class="quote">"Simplicity is the ultimate sophistication."</p>
     <p>Email: <a class="email-link" href="mailto:contact@noah.red">contact@noah.red</a></p>
   </div>
 
-  <!-- Footer -->
   <footer>
     Built with AI, because I’d rather wrestle a porcupine than write code.
   </footer>
-
-  <script>
-    const floating = document.getElementById('floating-text');
-    let x = window.innerWidth / 2;
-    let y = window.innerHeight / 2;
-    const speed = 0.2; // slow movement
-
-    // initial random angle
-    let angle = Math.random() * 2 * Math.PI;
-    let dx = Math.cos(angle) * speed;
-    let dy = Math.sin(angle) * speed;
-
-    function move() {
-      x += dx;
-      y += dy;
-
-      const rect = floating.getBoundingClientRect();
-      let hit = false;
-
-      // Check edges
-      if (rect.left <= 0) { // left
-        hit = true;
-        angle = Math.random() * Math.PI - Math.PI/2; // move rightwards
-      } else if (rect.right >= window.innerWidth) { // right
-        hit = true;
-        angle = Math.random() * Math.PI + Math.PI/2; // move leftwards
-      } else if (rect.top <= 0) { // top
-        hit = true;
-        angle = Math.random() * Math.PI; // move downwards
-      } else if (rect.bottom >= window.innerHeight) { // bottom
-        hit = true;
-        angle = Math.random() * Math.PI + Math.PI; // move upwards
-      }
-
-      if (hit) {
-        dx = Math.cos(angle) * speed;
-        dy = Math.sin(angle) * speed;
-        // spacing & size stay constant
-      }
-
-      floating.style.left = x + 'px';
-      floating.style.top = y + 'px';
-
-      requestAnimationFrame(move);
-    }
-
-    move();
-
-    window.addEventListener('resize', () => {
-      x = Math.min(x, window.innerWidth - floating.offsetWidth);
-      y = Math.min(y, window.innerHeight - floating.offsetHeight);
-    });
-  </script>
 
 </body>
 </html>
