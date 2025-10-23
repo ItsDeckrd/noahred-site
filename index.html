@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Noah Red - Y2K Smart Bounce</title>
+  <title>Noah Red - Y2K Neon Drift</title>
   <style>
     * { margin:0; padding:0; box-sizing:border-box; font-family:'Verdana','Arial',sans-serif; }
 
     body {
       overflow: hidden;
       min-height: 100vh;
-      background:#050014;
+      background:#0a001a;
       color:#fff;
       position: relative;
     }
@@ -24,7 +24,7 @@
       height:100%;
       object-fit:cover;
       z-index:-2;
-      filter: brightness(0.6) contrast(1.2);
+      filter: brightness(0.5) contrast(1.2);
     }
 
     /* Overlay for depth & glow */
@@ -34,8 +34,8 @@
       left:0;
       width:100%;
       height:100%;
-      background: rgba(0, 10, 30, 0.35);
-      backdrop-filter: blur(2px);
+      background: rgba(5,5,25,0.35);
+      backdrop-filter: blur(1.5px);
       z-index: -1;
     }
 
@@ -50,15 +50,15 @@
     nav a {
       margin-left:20px;
       text-decoration:none;
-      color:#ff66ff;
+      color:#00ffea;
       font-weight:bold;
-      text-shadow:0 0 8px #ff66ff;
+      text-shadow:0 0 10px #00ffea;
       transition:0.3s;
     }
 
     nav a:hover {
-      color:#ff99ff;
-      text-shadow:0 0 16px #ff99ff;
+      color:#66fff9;
+      text-shadow:0 0 18px #66fff9;
     }
 
     /* Floating text container */
@@ -69,29 +69,25 @@
       transform: translate(-50%, -50%);
       text-align:center;
       z-index:2;
-      color:#00ffff;
-      text-shadow: 0 0 12px #00ffff, 0 0 24px #66ffff;
-      transition: letter-spacing 0.2s, line-height 0.2s;
+      color:#ff00ff;
+      text-shadow: 0 0 14px #ff00ff, 0 0 28px #ff66ff;
     }
 
     #floating-text h1 {
       font-size:4rem;
       letter-spacing:2px;
-      text-shadow:0 0 12px #00ffcc,0 0 24px #66ffcc;
     }
 
     #floating-text h2 {
       font-size:2rem;
-      color:#66ffcc;
-      text-shadow:0 0 8px #66ffcc,0 0 16px #aaffee;
+      color:#ff66ff;
       margin-bottom:1em;
     }
 
     #floating-text p.quote {
       font-size:1.4rem;
       font-style:italic;
-      color:#ccffff;
-      text-shadow:0 0 6px #ccffff,0 0 12px #99ffff;
+      color:#ff99ff;
       margin:0.5em 0;
     }
 
@@ -114,8 +110,8 @@
       width:100%;
       text-align:center;
       font-size:0.85rem;
-      color:#ff99ff;
-      text-shadow:0 0 6px #ff99ff;
+      color:#ff66ff;
+      text-shadow:0 0 6px #ff66ff;
       z-index:3;
     }
   </style>
@@ -157,49 +153,38 @@
     let x = window.innerWidth / 2;
     let y = window.innerHeight / 2;
     const speed = 0.2; // slow movement
+
+    // initial random angle
     let angle = Math.random() * 2 * Math.PI;
     let dx = Math.cos(angle) * speed;
     let dy = Math.sin(angle) * speed;
-
-    function randomSpacing() {
-      const letterSpacing = (Math.random() * 5 + 1) + 'px';
-      const lineHeight = (Math.random() * 1.5 + 1.2) + 'em';
-      floating.style.letterSpacing = letterSpacing;
-      floating.style.lineHeight = lineHeight;
-    }
 
     function move() {
       x += dx;
       y += dy;
 
       const rect = floating.getBoundingClientRect();
-
       let hit = false;
-      let newAngle;
 
       // Check edges
-      if (rect.left <= 0) { // left side
+      if (rect.left <= 0) { // left
         hit = true;
-        newAngle = Math.random() * Math.PI - Math.PI/2; // angles facing right
-      }
-      if (rect.right >= window.innerWidth) { // right side
+        angle = Math.random() * Math.PI - Math.PI/2; // move rightwards
+      } else if (rect.right >= window.innerWidth) { // right
         hit = true;
-        newAngle = Math.random() * Math.PI + Math.PI/2; // angles facing left
-      }
-      if (rect.top <= 0) { // top
+        angle = Math.random() * Math.PI + Math.PI/2; // move leftwards
+      } else if (rect.top <= 0) { // top
         hit = true;
-        newAngle = Math.random() * Math.PI; // angles facing down
-      }
-      if (rect.bottom >= window.innerHeight) { // bottom
+        angle = Math.random() * Math.PI; // move downwards
+      } else if (rect.bottom >= window.innerHeight) { // bottom
         hit = true;
-        newAngle = Math.random() * Math.PI + Math.PI; // angles facing up
+        angle = Math.random() * Math.PI + Math.PI; // move upwards
       }
 
       if (hit) {
-        // pick new random direction facing away from side
-        dx = Math.cos(newAngle) * speed;
-        dy = Math.sin(newAngle) * speed;
-        randomSpacing(); // change spacing when hitting edge
+        dx = Math.cos(angle) * speed;
+        dy = Math.sin(angle) * speed;
+        // spacing & size stay constant
       }
 
       floating.style.left = x + 'px';
@@ -210,7 +195,6 @@
 
     move();
 
-    // Adjust on resize
     window.addEventListener('resize', () => {
       x = Math.min(x, window.innerWidth - floating.offsetWidth);
       y = Math.min(y, window.innerHeight - floating.offsetHeight);
