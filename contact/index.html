@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contact Me</title>
-  <style>
+    <style>
     /* Basic body setup */
     body {
       margin: 0;
@@ -18,51 +18,51 @@
       color: white;
       text-align: center;
     }
-
+  
     /* Horizontal divider lines */
     .divider {
       height: 1px;
       background-color: white;
       margin: 10px auto;
     }
-
+  
     /* Paragraph spacing and line height */
     p {
       line-height: 1.8;
       max-width: 700px;
       margin: 10px 20px;
     }
-
-    /* Links styling */
-    a {
+  
+    /* Links that are NOT buttons */
+    a:not(.button) {
       color: white;
       text-decoration: none;
       transition: color 0.3s ease;
     }
-
-    a:hover {
+  
+    a:not(.button):hover {
       text-decoration: underline;
-      color: white; /* Ensure email stays white on hover */
+      color: white;
     }
-
+  
     /* Back to home button styling */
     .button {
       display: inline-block;
       padding: 10px 20px;
-      border: 1px solid white;           /* 1px white outline */
-      background-color: transparent;      /* transparent inside */
-      color: white;                       /* text color */
+      border: 1px solid white;
+      background-color: transparent;
+      color: white;
       border-radius: 8px;
       font-weight: bold;
-      text-decoration: none;
-      transition: border-color 0.3s ease, color 0.3s ease; /* sync transitions */
+      text-decoration: none; /* never underline */
+      transition: border-color 0.3s ease, color 0.3s ease;
       margin-top: 20px;
     }
-
+  
     .button:hover {
-      border-color: black;               /* outline turns black */
-      color: black;                      /* text turns black */
-      background-color: transparent;     /* keep inside clear */
+      border-color: black;
+      color: black;
+      background-color: transparent;
     }
   </style>
 </head>
