@@ -17,9 +17,37 @@
       color: white;
       text-align: center;
     }
-    a {
+
+    /* General links that are not buttons */
+    a:not(.button) {
       color: white;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    a:not(.button):hover {
       text-decoration: underline;
+      color: white;
+    }
+
+    /* Button style for "Contact me" or other buttons */
+    .button {
+      display: inline-block;
+      padding: 10px 20px;
+      border: 1px solid white;       /* white outline */
+      background-color: transparent;  /* transparent inside */
+      color: white;                   /* text color */
+      border-radius: 8px;
+      font-weight: bold;
+      text-decoration: none;          /* no underline */
+      transition: border-color 0.3s ease, color 0.3s ease;
+      margin: 10px 0;
+    }
+
+    .button:hover {
+      border-color: black;            /* outline turns black */
+      color: black;                   /* text turns black */
+      background-color: transparent;  /* keep inside clear */
     }
   </style>
 </head>
@@ -27,7 +55,7 @@
   <h1>I’m Noah "Chai" Jackson</h1>
   <p>"He's kinda chai"</p>
   <p>
-    <a href="contact/">Contact me</a> • 
+    <a href="contact/" class="button">Contact me</a>
   </p>
 </body>
 </html>
