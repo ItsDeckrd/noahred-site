@@ -1,61 +1,149 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Noah Red</title>
   <style>
-    body {
+    /* Reset some default styles */
+    * {
+      box-sizing: border-box;
       margin: 0;
-      height: 100vh;
+      padding: 0;
+      font-family: 'Arial', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(to right, #ffecd2, #fcb69f);
+      color: #333;
       display: flex;
       flex-direction: column;
-      justify-content: center;
       align-items: center;
-      font-family: system-ui, sans-serif;
-      background: radial-gradient(circle at top, #ff4d4d, #1a0000);
-      color: white;
+      justify-content: center;
+      min-height: 100vh;
       text-align: center;
+      padding: 20px;
     }
 
-    /* General links that are not buttons */
-    a:not(.button) {
-      color: white;
-      text-decoration: none;
-      transition: color 0.3s ease;
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 0.2em;
     }
 
-    a:not(.button):hover {
-      text-decoration: underline;
-      color: white;
+    h2 {
+      font-size: 1.5rem;
+      margin-bottom: 1em;
+      color: #555;
     }
 
-    /* Button style for "Contact me" or other buttons */
-    .button {
+    p.quote {
+      font-style: italic;
+      margin: 1em 0;
+      font-size: 1.2rem;
+      color: #444;
+    }
+
+    a.email {
       display: inline-block;
-      padding: 10px 20px;
-      border: 1px solid white;       /* white outline */
-      background-color: transparent;  /* transparent inside */
-      color: white;                   /* text color */
-      border-radius: 8px;
-      font-weight: bold;
-      text-decoration: none;          /* no underline */
-      transition: border-color 0.3s ease, color 0.3s ease;
-      margin: 10px 0;
+      margin: 1em 0;
+      padding: 0.5em 1em;
+      text-decoration: none;
+      background-color: #333;
+      color: #fff;
+      border-radius: 5px;
+      transition: background 0.3s;
     }
 
-    .button:hover {
-      border-color: black;            /* outline turns black */
-      color: black;                   /* text turns black */
-      background-color: transparent;  /* keep inside clear */
+    a.email:hover {
+      background-color: #555;
+    }
+
+    /* Dropdown styles */
+    .dropdown {
+      position: relative;
+      display: inline-block;
+      margin-top: 1em;
+    }
+
+    .dropbtn {
+      background-color: #333;
+      color: white;
+      padding: 0.5em 1em;
+      font-size: 1rem;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .dropbtn:hover {
+      background-color: #555;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #f9f9f9;
+      min-width: 150px;
+      box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+      border-radius: 5px;
+      z-index: 1;
+      text-align: left;
+      margin-top: 0.5em;
+    }
+
+    .dropdown-content a {
+      color: #333;
+      padding: 0.5em 1em;
+      text-decoration: none;
+      display: block;
+      transition: background 0.3s;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #eee;
+    }
+
+    .show {
+      display: block;
     }
   </style>
 </head>
 <body>
-  <h1>I’m Noah "Chai" Jackson</h1>
-  <p>"He's kinda chai"</p>
-  <p>
-    <a href="contact/" class="button">Contact me</a>
-  </p>
+
+  <h1>Noah Jackson</h1>
+  <h2>Nickname: Deckrd</h2>
+  <p class="quote">"Simplicity is the ultimate sophistication."</p>
+
+  <a class="email" href="mailto:contact@noah.red">contact@noah.red</a>
+
+  <div class="dropdown">
+    <button onclick="toggleDropdown()" class="dropbtn">Menu</button>
+    <div id="myDropdown" class="dropdown-content">
+      <a href="#">Page 1</a>
+      <a href="#">Page 2</a>
+      <a href="#">Page 3</a>
+    </div>
+  </div>
+
+  <script>
+    function toggleDropdown() {
+      document.getElementById("myDropdown").classList.toggle("show");
+    }
+
+    // Close the dropdown if the user clicks outside of it
+    window.onclick = function(event) {
+      if (!event.target.matches('.dropbtn')) {
+        var dropdowns = document.getElementsByClassName("dropdown-content");
+        for (var i = 0; i < dropdowns.length; i++) {
+          var openDropdown = dropdowns[i];
+          if (openDropdown.classList.contains('show')) {
+            openDropdown.classList.remove('show');
+          }
+        }
+      }
+    }
+  </script>
+
 </body>
 </html>
