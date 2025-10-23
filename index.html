@@ -1,11 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Noah Red</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Arial', sans-serif;
+    }
+
+    body {
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      text-align: center;
+      padding: 20px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Video background */
+    #bg-video {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -2;
+    }
+
+    /* Dark overlay for readability */
+    #overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.3);
+      z-index: -1;
+    }
+
+    /* Header / top menu */
+    header {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      z-index: 1;
+    }
+
+    nav {
+      font-size: 1rem;
+    }
+
+    nav a {
+      margin-left: 15px;
+      text-decoration: none;
+      color: #fff;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #ddd;
+    }
+
+    /* Main content */
+    main h1 {
+      font-size: 3rem;
+      margin-bottom: 0.2em;
+      z-index: 1;
+    }
+
+    main h2 {
+      font-size: 1.5rem;
+      margin-bottom: 1em;
+      color: #ddd;
+      z-index: 1;
+    }
+
+    p.quote {
+      font-style: italic;
+      margin: 1em 0;
+      font-size: 1.2rem;
+      color: #eee;
+      z-index: 1;
+    }
+
+    a.email-link {
+      color: #fff;
+      text-decoration: underline;
+      transition: color 0.3s;
+      z-index: 1;
+    }
+
+    a.email-link:hover {
+      color: #ddd;
+    }
+
+    /* Footer */
+    footer {
+      position: absolute;
+      bottom: 10px;
+      font-size: 0.8rem;
+      color: #ccc;
+      z-index: 1;
+    }
+  </style>
+</head>
 <body>
 
+  <!-- Video background -->
   <video autoplay muted loop id="bg-video">
     <source src="background.mp4" type="video/mp4">
+    Your browser does not support the video tag.
   </video>
 
+  <!-- Overlay -->
   <div id="overlay"></div>
 
+  <!-- Header / Menu -->
   <header>
     <nav>
       <a href="#">Home</a>
@@ -14,15 +133,18 @@
     </nav>
   </header>
 
+  <!-- Main content -->
   <main>
     <h1>Noah Jackson</h1>
     <h2>Chai</h2>
-    <p class="quote">"I gave that chair a makers mark!"</p>
+    <p class="quote">"I gave that chair the makers mark!"</p>
     <p>Email: <a class="email-link" href="mailto:contact@noah.red">contact@noah.red</a></p>
   </main>
 
+  <!-- Footer -->
   <footer>
-    This site was created using AI (ChatGPT).
+    This site was created with AI, because I’d rather wrestle a porcupine than code
   </footer>
 
 </body>
+</html>
