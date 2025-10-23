@@ -20,23 +20,24 @@
 
     a { text-decoration: none; }
 
-    /* Simple outlined button with black hover */
+    /* Outlined button with black hover outline */
     .button {
       display: inline-block;
       padding: 10px 20px;
-      border: 1px solid white;       /* 1px white outline */
-      background-color: transparent;  /* transparent by default */
+      border: 1px solid white;       /* white outline by default */
+      background-color: transparent;  /* transparent inside */
       color: white;                   /* text color */
       border-radius: 8px;
       font-weight: bold;
       text-decoration: none;
-      transition: all 0.3s ease;
+      transition: border-color 0.3s ease;
       margin-top: 10px;
     }
 
     .button:hover {
-      background-color: black; /* fill black on hover */
-      color: white;            /* text stays visible */
+      border-color: black;           /* outline turns black on hover */
+      background-color: transparent; /* keep background clear */
+      color: white;                  /* text stays white */
     }
   </style>
 </head>
