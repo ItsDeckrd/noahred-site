@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Noah Red</title>
   <style>
-    /* Reset some default styles */
     * {
       box-sizing: border-box;
       margin: 0;
@@ -23,6 +22,28 @@
       min-height: 100vh;
       text-align: center;
       padding: 20px;
+      position: relative;
+    }
+
+    header {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+    }
+
+    nav {
+      font-size: 1rem;
+    }
+
+    nav a {
+      margin-left: 15px;
+      text-decoration: none;
+      color: #333;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #555;
     }
 
     h1 {
@@ -43,107 +64,44 @@
       color: #444;
     }
 
-    a.email {
-      display: inline-block;
-      margin: 1em 0;
-      padding: 0.5em 1em;
-      text-decoration: none;
-      background-color: #333;
-      color: #fff;
-      border-radius: 5px;
-      transition: background 0.3s;
-    }
-
-    a.email:hover {
-      background-color: #555;
-    }
-
-    /* Dropdown styles */
-    .dropdown {
-      position: relative;
-      display: inline-block;
-      margin-top: 1em;
-    }
-
-    .dropbtn {
-      background-color: #333;
-      color: white;
-      padding: 0.5em 1em;
-      font-size: 1rem;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: background 0.3s;
-    }
-
-    .dropbtn:hover {
-      background-color: #555;
-    }
-
-    .dropdown-content {
-      display: none;
-      position: absolute;
-      background-color: #f9f9f9;
-      min-width: 150px;
-      box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
-      border-radius: 5px;
-      z-index: 1;
-      text-align: left;
-      margin-top: 0.5em;
-    }
-
-    .dropdown-content a {
+    a.email-link {
       color: #333;
-      padding: 0.5em 1em;
-      text-decoration: none;
-      display: block;
-      transition: background 0.3s;
+      text-decoration: underline;
+      transition: color 0.3s;
     }
 
-    .dropdown-content a:hover {
-      background-color: #eee;
+    a.email-link:hover {
+      color: #555;
     }
 
-    .show {
-      display: block;
+    footer {
+      position: absolute;
+      bottom: 10px;
+      font-size: 0.8rem;
+      color: #666;
     }
   </style>
 </head>
 <body>
 
-  <h1>Noah Jackson</h1>
-  <h2>Nickname: Deckrd</h2>
-  <p class="quote">"Simplicity is the ultimate sophistication."</p>
+  <header>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">About</a>
+      <a href="#">Projects</a>
+    </nav>
+  </header>
 
-  <a class="email" href="mailto:contact@noah.red">contact@noah.red</a>
+  <main>
+    <h1>Noah Jackson</h1>
+    <h2>Nickname: Deckrd</h2>
+    <p class="quote">"Simplicity is the ultimate sophistication."</p>
+    <p>Email: <a class="email-link" href="mailto:contact@noah.red">contact@noah.red</a></p>
+  </main>
 
-  <div class="dropdown">
-    <button onclick="toggleDropdown()" class="dropbtn">Menu</button>
-    <div id="myDropdown" class="dropdown-content">
-      <a href="#">Page 1</a>
-      <a href="#">Page 2</a>
-      <a href="#">Page 3</a>
-    </div>
-  </div>
-
-  <script>
-    function toggleDropdown() {
-      document.getElementById("myDropdown").classList.toggle("show");
-    }
-
-    // Close the dropdown if the user clicks outside of it
-    window.onclick = function(event) {
-      if (!event.target.matches('.dropbtn')) {
-        var dropdowns = document.getElementsByClassName("dropdown-content");
-        for (var i = 0; i < dropdowns.length; i++) {
-          var openDropdown = dropdowns[i];
-          if (openDropdown.classList.contains('show')) {
-            openDropdown.classList.remove('show');
-          }
-        }
-      }
-    }
-  </script>
+  <footer>
+    This site was created using AI (ChatGPT).
+  </footer>
 
 </body>
 </html>
