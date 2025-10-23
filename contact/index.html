@@ -20,44 +20,23 @@
 
     a { text-decoration: none; }
 
-    /* Cutout button style */
+    /* Simple outlined button with black hover */
     .button {
-      position: relative;
       display: inline-block;
       padding: 10px 20px;
-      border: 2px solid white;
+      border: 1px solid white;       /* 1px white outline */
+      background-color: transparent;  /* transparent by default */
+      color: white;                   /* text color */
       border-radius: 8px;
       font-weight: bold;
       text-decoration: none;
-      overflow: hidden;
-      background-color: transparent;
-      margin-top: 10px;
       transition: all 0.3s ease;
+      margin-top: 10px;
     }
 
-    .button span {
-      position: relative;
-      z-index: 1;
-      transition: color 0.3s ease;
-    }
-
-    .button::after {
-      content: "";
-      position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background-color: white;
-      z-index: 0;
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: transform 0.3s ease;
-    }
-
-    .button:hover::after {
-      transform: scaleX(1);
-    }
-
-    .button:hover span {
-      color: transparent;
+    .button:hover {
+      background-color: black; /* fill black on hover */
+      color: white;            /* text stays visible */
     }
   </style>
 </head>
@@ -88,7 +67,7 @@
 
   <div style="height: 1px; width: 600px; background-color: white; margin: 10px auto;"></div>
 
-  <!-- Back to home cutout button -->
-  <a href="/" class="button"><span>← Back to home</span></a>
+  <!-- Back to home button -->
+  <a href="/" class="button">← Back to home</a>
 </body>
 </html>
