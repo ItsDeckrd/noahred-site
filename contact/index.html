@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contact Me</title>
   <style>
+    /* Basic body setup */
     body {
       margin: 0;
       min-height: 100vh;
@@ -18,65 +19,82 @@
       text-align: center;
     }
 
-    /* Make all links white and remove underline */
+    /* Horizontal divider lines */
+    .divider {
+      height: 1px;
+      background-color: white;
+      margin: 10px auto;
+    }
+
+    /* Paragraph spacing and line height */
+    p {
+      line-height: 1.8;
+      max-width: 700px;
+      margin: 10px 20px;
+    }
+
+    /* Links styling */
     a {
       color: white;
       text-decoration: none;
+      transition: color 0.3s ease;
     }
 
     a:hover {
-      text-decoration: underline; /* optional: underline on hover */
+      text-decoration: underline;
+      color: white; /* Ensure email stays white on hover */
     }
 
-    /* Outlined button with synchronized hover transition */
+    /* Back to home button styling */
     .button {
       display: inline-block;
       padding: 10px 20px;
-      border: 1px solid white;           /* white outline by default */
+      border: 1px solid white;           /* 1px white outline */
       background-color: transparent;      /* transparent inside */
       color: white;                       /* text color */
       border-radius: 8px;
       font-weight: bold;
       text-decoration: none;
-      transition: border-color 0.3s ease, color 0.3s ease; /* transition both */
-      margin-top: 10px;
+      transition: border-color 0.3s ease, color 0.3s ease; /* sync transitions */
+      margin-top: 20px;
     }
 
     .button:hover {
-      border-color: black;               /* outline turns black on hover */
-      color: black;                      /* text turns black on hover */
-      background-color: transparent;     /* keep background clear */
+      border-color: black;               /* outline turns black */
+      color: black;                      /* text turns black */
+      background-color: transparent;     /* keep inside clear */
     }
   </style>
 </head>
 <body>
+
   <h1>Contact Me</h1>
+  <div class="divider" style="width: 600px;"></div>
 
-  <div style="height: 1px; width: 600px; background-color: white; margin: 10px auto;"></div>
-
-  <p style="line-height: 1.8;">
+  <p>
     Rowley Jefferson:<br>
     You only care about yourself. You hated my cartoon, you made fun of my clothes,<br>
     you disrespected Joshie, you broke my hand and you didn't even seem sorry!
   </p>
 
-  <p style="line-height: 1.8;">
+  <p>
     Greg Heffley:<br>
     That broken hand was the best thing that ever happened to you!
   </p>
 
-  <p style="line-height: 1.8;">
+  <p>
     Rowley Jefferson:<br>
     [in disbelief] Don't call me. Don't come by my house. We're done.
   </p>
 
-  <div style="height: 1px; width: 75px; background-color: white; margin: 10px auto;"></div>
+  <div class="divider" style="width: 75px;"></div>
 
   <p>You can reach me at <a href="mailto:contact@noah.red">contact@noah.red</a></p>
 
-  <div style="height: 1px; width: 600px; background-color: white; margin: 10px auto;"></div>
+  <div class="divider" style="width: 600px;"></div>
 
   <!-- Back to home button -->
   <a href="/" class="button">← Back to home</a>
+
 </body>
 </html>
