@@ -70,6 +70,16 @@
       color: #ddd;
     }
 
+    /* Float animation */
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-5px); } /* gentle bob */
+    }
+
+    .floating {
+      animation: float 3s ease-in-out infinite;
+    }
+
     /* Main content */
     main h1 {
       font-size: 3rem;
@@ -134,16 +144,16 @@
   </header>
 
   <!-- Main content -->
-  <main>
+  <main class="floating">
     <h1>Noah Jackson</h1>
-    <h2>Chai</h2>
-    <p class="quote">"I gave that chair the makers mark!"</p>
+    <h2>Nickname: Deckrd</h2>
+    <p class="quote">"Simplicity is the ultimate sophistication."</p>
     <p>Email: <a class="email-link" href="mailto:contact@noah.red">contact@noah.red</a></p>
   </main>
 
   <!-- Footer -->
-  <footer>
-    This site was created with AI, because I’d rather wrestle a porcupine than code
+  <footer class="floating">
+    Built with AI, because I’d rather wrestle a porcupine than write code.
   </footer>
 
 </body>
