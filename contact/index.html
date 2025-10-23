@@ -18,7 +18,15 @@
       text-align: center;
     }
 
-    a { text-decoration: none; }
+    /* Make all links white and remove underline */
+    a {
+      color: white;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline; /* optional: underline on hover */
+    }
 
     /* Outlined button with black hover outline */
     .button {
@@ -37,7 +45,7 @@
     .button:hover {
       border-color: black;           /* outline turns black on hover */
       background-color: transparent; /* keep background clear */
-      color: black;                  /* text turns black */
+      color: black;                  /* text turns black*/
     }
   </style>
 </head>
