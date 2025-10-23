@@ -17,31 +17,55 @@
       color: white;
       text-align: center;
     }
+
     a { color: white; text-decoration: underline; }
+
+    /* Button style */
+    .button {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: white;
+      color: #ff4d4d;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+      transition: background-color 0.3s, color 0.3s;
+      margin-top: 10px;
+    }
+
+    .button:hover {
+      background-color: #ff4d4d;
+      color: white;
+    }
   </style>
 </head>
 <body>
   <h1>Contact Noah</h1>
-  <div style="height: 1px; width: 800px; background-color: white; margin: 10px auto;"></div>
-    <p style="line-height: 1.8;">
-  Rowley Jefferson:<br>
-  You only care about yourself. You hated my cartoon, you made fun of my clothes,<br>
-  you disrespected Joshie, you broke my hand and you didn't even seem sorry!
-</p>
+  <div style="height: 1px; width: 700px; background-color: white; margin: 10px auto;"></div>
 
-<p style="line-height: 1.8;">
-  Greg Heffley:<br>
-  That broken hand was the best thing that ever happened to you!
-</p>
+  <p style="line-height: 1.8;">
+    Rowley Jefferson:<br>
+    You only care about yourself. You hated my cartoon, you made fun of my clothes,<br>
+    you disrespected Joshie, you broke my hand and you didn't even seem sorry!
+  </p>
 
-<p style="line-height: 1.8;">
-  Rowley Jefferson:<br>
-  [in disbelief] Don't call me. Don't come by my house. We're done.
-</p>
+  <p style="line-height: 1.8;">
+    Greg Heffley:<br>
+    That broken hand was the best thing that ever happened to you!
+  </p>
+
+  <p style="line-height: 1.8;">
+    Rowley Jefferson:<br>
+    [in disbelief] Don't call me. Don't come by my house. We're done.
+  </p>
 
   <div style="height: 1px; width: 50px; background-color: white; margin: 10px auto;"></div>
+
   <p>You can reach me at <a href="mailto:contact@noah.red">contact@noah.red</a></p>
-  <div style="height: 1px; width: 800px; background-color: white; margin: 10px auto;"></div>
-  <p><a href="/">← Back to home</a></p>
+
+  <div style="height: 1px; width: 700px; background-color: white; margin: 10px auto;"></div>
+
+  <!-- Back to home button -->
+  <a href="/" class="button">← Back to home</a>
 </body>
 </html>
