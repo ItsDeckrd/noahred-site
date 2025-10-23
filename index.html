@@ -1,88 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Noah Red</title>
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: 'Arial', sans-serif;
-    }
-
-    body {
-      background: linear-gradient(to right, #ffecd2, #fcb69f);
-      color: #333;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      min-height: 100vh;
-      text-align: center;
-      padding: 20px;
-      position: relative;
-    }
-
-    header {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-    }
-
-    nav {
-      font-size: 1rem;
-    }
-
-    nav a {
-      margin-left: 15px;
-      text-decoration: none;
-      color: #333;
-      transition: color 0.3s;
-    }
-
-    nav a:hover {
-      color: #555;
-    }
-
-    h1 {
-      font-size: 3rem;
-      margin-bottom: 0.2em;
-    }
-
-    h2 {
-      font-size: 1.5rem;
-      margin-bottom: 1em;
-      color: #555;
-    }
-
-    p.quote {
-      font-style: italic;
-      margin: 1em 0;
-      font-size: 1.2rem;
-      color: #444;
-    }
-
-    a.email-link {
-      color: #333;
-      text-decoration: underline;
-      transition: color 0.3s;
-    }
-
-    a.email-link:hover {
-      color: #555;
-    }
-
-    footer {
-      position: absolute;
-      bottom: 10px;
-      font-size: 0.8rem;
-      color: #666;
-    }
-  </style>
-</head>
 <body>
+
+  <video autoplay muted loop id="bg-video">
+    <source src="background.mp4" type="video/mp4">
+  </video>
+
+  <div id="overlay"></div>
 
   <header>
     <nav>
@@ -94,8 +16,8 @@
 
   <main>
     <h1>Noah Jackson</h1>
-    <h2>Nickname: Deckrd</h2>
-    <p class="quote">"Simplicity is the ultimate sophistication."</p>
+    <h2>Chai</h2>
+    <p class="quote">"I gave that chair a makers mark!"</p>
     <p>Email: <a class="email-link" href="mailto:contact@noah.red">contact@noah.red</a></p>
   </main>
 
@@ -104,4 +26,3 @@
   </footer>
 
 </body>
-</html>
