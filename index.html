@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Noah Red - Y2K Furitager</title>
+  <title>Noah Red - Y2K Furitager Reloaded</title>
   <style>
     * {
       box-sizing: border-box;
@@ -29,17 +29,17 @@
       height: 100%;
       object-fit: cover;
       z-index: -2;
-      filter: brightness(0.6) contrast(1.2);
+      filter: brightness(0.5) contrast(1.3);
     }
 
-    /* Overlay for depth & Y2K vibe */
+    /* Overlay for depth & glow */
     #overlay {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(0,20,40,0.4);
+      background: rgba(0, 0, 50, 0.4);
       backdrop-filter: blur(1.5px);
       z-index: -1;
     }
@@ -55,18 +55,18 @@
     nav a {
       margin-left: 20px;
       text-decoration: none;
-      color: #00ffff;
+      color: #ff00ff;
       font-weight: bold;
       transition: 0.3s;
-      text-shadow: 0 0 6px #00ffff;
+      text-shadow: 0 0 8px #ff00ff;
     }
 
     nav a:hover {
-      color: #66ffff;
-      text-shadow: 0 0 12px #66ffff;
+      color: #ff99ff;
+      text-shadow: 0 0 16px #ff99ff;
     }
 
-    /* Floating main content container */
+    /* Floating text container */
     #floating-text {
       position: absolute;
       left: 50%;
@@ -75,26 +75,28 @@
       text-align: center;
       z-index: 2;
       color: #00ffff;
-      text-shadow: 0 0 10px #00ffff;
-      transition: transform 0.1s linear;
+      text-shadow: 0 0 12px #00ffff, 0 0 20px #66ffff;
     }
 
     #floating-text h1 {
       font-size: 4rem;
       letter-spacing: 2px;
+      color: #00ffcc;
+      text-shadow: 0 0 12px #00ffcc, 0 0 24px #66ffcc;
     }
 
     #floating-text h2 {
-      font-size: 1.8rem;
-      color: #66ffff;
-      text-shadow: 0 0 6px #66ffff;
+      font-size: 2rem;
+      color: #66ffcc;
+      text-shadow: 0 0 8px #66ffcc, 0 0 16px #aaffee;
+      margin-bottom: 1em;
     }
 
     #floating-text p.quote {
-      font-size: 1.3rem;
+      font-size: 1.4rem;
       font-style: italic;
-      color: #ccfaff;
-      text-shadow: 0 0 5px #ccfaff;
+      color: #ccffff;
+      text-shadow: 0 0 6px #ccffff, 0 0 12px #99ffff;
       margin: 0.5em 0;
     }
 
@@ -102,11 +104,12 @@
       color: #00ffff;
       text-decoration: underline;
       font-weight: 500;
+      transition: 0.3s;
     }
 
     #floating-text a.email-link:hover {
       color: #66ffff;
-      text-shadow: 0 0 8px #66ffff;
+      text-shadow: 0 0 10px #66ffff;
     }
 
     /* Footer (AI disclaimer) */
@@ -116,8 +119,8 @@
       width: 100%;
       text-align: center;
       font-size: 0.85rem;
-      color: #66ffff;
-      text-shadow: 0 0 4px #66ffff;
+      color: #ff99ff;
+      text-shadow: 0 0 6px #ff99ff;
       z-index: 3;
     }
   </style>
@@ -155,19 +158,20 @@
   </footer>
 
   <script>
-    // DVD-style floating movement
+    // Slow bouncing movement for floating-text (Y2K DVD style)
     const floating = document.getElementById('floating-text');
     let x = window.innerWidth / 2;
     let y = window.innerHeight / 2;
-    let dx = (Math.random() * 0.3 + 0.05); // slow horizontal speed
-    let dy = (Math.random() * 0.3 + 0.05); // slow vertical speed
+    let dx = 0.2; // slow horizontal speed
+    let dy = 0.15; // slow vertical speed
 
     function move() {
       x += dx;
       y += dy;
 
-      // Bounce off edges
       const rect = floating.getBoundingClientRect();
+
+      // Bounce off edges
       if (rect.right >= window.innerWidth || rect.left <= 0) dx = -dx;
       if (rect.bottom >= window.innerHeight || rect.top <= 0) dy = -dy;
 
