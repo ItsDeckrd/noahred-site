@@ -3,8 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Noah Red - Y2K Furitager Reloaded</title>
+  <title>Noah Red - Y2K Neo Aqua</title>
   <style>
+    /* Reset & font */
     * {
       box-sizing: border-box;
       margin: 0;
@@ -15,7 +16,7 @@
     body {
       overflow: hidden;
       min-height: 100vh;
-      background: #000;
+      background: #050014;
       color: #fff;
       position: relative;
     }
@@ -29,18 +30,18 @@
       height: 100%;
       object-fit: cover;
       z-index: -2;
-      filter: brightness(0.5) contrast(1.3);
+      filter: brightness(0.6) contrast(1.2);
     }
 
-    /* Overlay for depth & glow */
+    /* Overlay for depth & neon glow */
     #overlay {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(0, 0, 50, 0.4);
-      backdrop-filter: blur(1.5px);
+      background: rgba(0, 10, 30, 0.35);
+      backdrop-filter: blur(2px);
       z-index: -1;
     }
 
@@ -55,10 +56,10 @@
     nav a {
       margin-left: 20px;
       text-decoration: none;
-      color: #ff00ff;
+      color: #ff66ff;
       font-weight: bold;
+      text-shadow: 0 0 8px #ff66ff;
       transition: 0.3s;
-      text-shadow: 0 0 8px #ff00ff;
     }
 
     nav a:hover {
@@ -75,7 +76,7 @@
       text-align: center;
       z-index: 2;
       color: #00ffff;
-      text-shadow: 0 0 12px #00ffff, 0 0 20px #66ffff;
+      text-shadow: 0 0 12px #00ffff, 0 0 24px #66ffff;
     }
 
     #floating-text h1 {
@@ -158,12 +159,16 @@
   </footer>
 
   <script>
-    // Slow bouncing movement for floating-text (Y2K DVD style)
+    // Randomized bouncing movement
     const floating = document.getElementById('floating-text');
     let x = window.innerWidth / 2;
     let y = window.innerHeight / 2;
-    let dx = 0.2; // slow horizontal speed
-    let dy = 0.15; // slow vertical speed
+    const speed = 0.25; // slow speed
+
+    // initial random angle
+    let angle = Math.random() * 2 * Math.PI;
+    let dx = Math.cos(angle) * speed;
+    let dy = Math.sin(angle) * speed;
 
     function move() {
       x += dx;
@@ -171,9 +176,18 @@
 
       const rect = floating.getBoundingClientRect();
 
-      // Bounce off edges
-      if (rect.right >= window.innerWidth || rect.left <= 0) dx = -dx;
-      if (rect.bottom >= window.innerHeight || rect.top <= 0) dy = -dy;
+      // If it hits an edge, pick a new random direction
+      if (rect.right >= window.innerWidth || rect.left <= 0 ||
+          rect.bottom >= window.innerHeight || rect.top <= 0) {
+        // new random angle between 0 and 2π, but not the same direction
+        let newAngle;
+        do {
+          newAngle = Math.random() * 2 * Math.PI;
+        } while (Math.abs(newAngle - angle) < Math.PI / 6); // avoid similar angle
+        angle = newAngle;
+        dx = Math.cos(angle) * speed;
+        dy = Math.sin(angle) * speed;
+      }
 
       floating.style.left = x + 'px';
       floating.style.top = y + 'px';
