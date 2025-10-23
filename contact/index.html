@@ -4,7 +4,66 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Contact Me</title>
-  
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      font-family: system-ui, sans-serif;
+      background: radial-gradient(circle at top, #ff4d4d, #1a0000);
+      color: white;
+      text-align: center;
+    }
+
+    a { text-decoration: none; }
+
+    /* Cutout button style */
+    .button {
+      position: relative;
+      display: inline-block;
+      padding: 10px 20px;
+      border: 2px solid white;
+      border-radius: 8px;
+      font-weight: bold;
+      text-decoration: none;
+      overflow: hidden;
+      background-color: transparent;
+      margin-top: 10px;
+      transition: all 0.3s ease;
+    }
+
+    .button span {
+      position: relative;
+      z-index: 1;
+      transition: color 0.3s ease;
+    }
+
+    .button::after {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-color: white;
+      z-index: 0;
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s ease;
+    }
+
+    .button:hover::after {
+      transform: scaleX(1);
+    }
+
+    .button:hover span {
+      color: transparent;
+    }
+  </style>
+</head>
+<body>
+  <h1>Contact Me</h1>
+
   <div style="height: 1px; width: 600px; background-color: white; margin: 10px auto;"></div>
 
   <p style="line-height: 1.8;">
@@ -29,7 +88,7 @@
 
   <div style="height: 1px; width: 600px; background-color: white; margin: 10px auto;"></div>
 
-  <!-- Back to home ghost button -->
-  <a href="/" class="button">← Back to home</a>
+  <!-- Back to home cutout button -->
+  <a href="/" class="button"><span>← Back to home</span></a>
 </body>
 </html>
