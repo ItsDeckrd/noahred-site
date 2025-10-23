@@ -3,26 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Noah Red - Furitager Aero</title>
+  <title>Noah Red - Y2K Furitager</title>
   <style>
-    /* Reset & font */
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
-      font-family: 'Segoe UI', 'Roboto', sans-serif;
+      font-family: 'Verdana', 'Arial', sans-serif;
     }
 
     body {
       overflow: hidden;
       min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
       background: #000;
       color: #fff;
-      text-align: center;
       position: relative;
     }
 
@@ -35,96 +29,96 @@
       height: 100%;
       object-fit: cover;
       z-index: -2;
-      filter: brightness(0.7) contrast(1.2);
+      filter: brightness(0.6) contrast(1.2);
     }
 
-    /* Overlay for depth & glow */
+    /* Overlay for depth & Y2K vibe */
     #overlay {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(0, 20, 40, 0.4);
-      backdrop-filter: blur(2px);
+      background: rgba(0,20,40,0.4);
+      backdrop-filter: blur(1.5px);
       z-index: -1;
     }
 
     /* Header nav */
     header {
       position: absolute;
-      top: 30px;
-      right: 30px;
-      z-index: 2;
+      top: 20px;
+      right: 20px;
+      z-index: 3;
     }
 
     nav a {
       margin-left: 20px;
       text-decoration: none;
-      color: #00fff9;
-      font-weight: 500;
-      letter-spacing: 0.5px;
+      color: #00ffff;
+      font-weight: bold;
       transition: 0.3s;
+      text-shadow: 0 0 6px #00ffff;
     }
 
     nav a:hover {
-      color: #66fff9;
-      text-shadow: 0 0 8px #66fff9;
+      color: #66ffff;
+      text-shadow: 0 0 12px #66ffff;
     }
 
-    /* Floating animation */
-    @keyframes float {
-      0%, 100% { transform: translateY(0px); }
-      50% { transform: translateY(-6px); }
+    /* Floating main content container */
+    #floating-text {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      z-index: 2;
+      color: #00ffff;
+      text-shadow: 0 0 10px #00ffff;
+      transition: transform 0.1s linear;
     }
 
-    .floating {
-      animation: float 4s ease-in-out infinite;
-    }
-
-    /* Main content */
-    main h1 {
+    #floating-text h1 {
       font-size: 4rem;
       letter-spacing: 2px;
-      color: #00fff9;
-      text-shadow: 0 0 10px #00fff9;
-      margin-bottom: 0.3em;
     }
 
-    main h2 {
+    #floating-text h2 {
       font-size: 1.8rem;
-      color: #66fff9;
-      margin-bottom: 1em;
-      text-shadow: 0 0 6px #66fff9;
+      color: #66ffff;
+      text-shadow: 0 0 6px #66ffff;
     }
 
-    p.quote {
+    #floating-text p.quote {
       font-size: 1.3rem;
       font-style: italic;
       color: #ccfaff;
-      margin: 1em 0;
       text-shadow: 0 0 5px #ccfaff;
+      margin: 0.5em 0;
     }
 
-    a.email-link {
-      color: #00fff9;
+    #floating-text a.email-link {
+      color: #00ffff;
       text-decoration: underline;
       font-weight: 500;
-      transition: 0.3s;
     }
 
-    a.email-link:hover {
-      color: #66fff9;
-      text-shadow: 0 0 8px #66fff9;
+    #floating-text a.email-link:hover {
+      color: #66ffff;
+      text-shadow: 0 0 8px #66ffff;
     }
 
-    /* Footer */
+    /* Footer (AI disclaimer) */
     footer {
       position: absolute;
       bottom: 15px;
+      width: 100%;
+      text-align: center;
       font-size: 0.85rem;
-      color: #66fff9;
-      text-shadow: 0 0 4px #66fff9;
+      color: #66ffff;
+      text-shadow: 0 0 4px #66ffff;
+      z-index: 3;
     }
   </style>
 </head>
@@ -136,7 +130,6 @@
     Your browser does not support the video tag.
   </video>
 
-  <!-- Overlay for depth -->
   <div id="overlay"></div>
 
   <!-- Header / Menu -->
@@ -148,18 +141,50 @@
     </nav>
   </header>
 
-  <!-- Main Content -->
-  <main class="floating">
+  <!-- Floating main content -->
+  <div id="floating-text">
     <h1>Noah Jackson</h1>
     <h2>Nickname: Deckrd</h2>
     <p class="quote">"Simplicity is the ultimate sophistication."</p>
     <p>Email: <a class="email-link" href="mailto:contact@noah.red">contact@noah.red</a></p>
-  </main>
+  </div>
 
   <!-- Footer -->
-  <footer class="floating">
+  <footer>
     Built with AI, because I’d rather wrestle a porcupine than write code.
   </footer>
+
+  <script>
+    // DVD-style floating movement
+    const floating = document.getElementById('floating-text');
+    let x = window.innerWidth / 2;
+    let y = window.innerHeight / 2;
+    let dx = (Math.random() * 0.3 + 0.05); // slow horizontal speed
+    let dy = (Math.random() * 0.3 + 0.05); // slow vertical speed
+
+    function move() {
+      x += dx;
+      y += dy;
+
+      // Bounce off edges
+      const rect = floating.getBoundingClientRect();
+      if (rect.right >= window.innerWidth || rect.left <= 0) dx = -dx;
+      if (rect.bottom >= window.innerHeight || rect.top <= 0) dy = -dy;
+
+      floating.style.left = x + 'px';
+      floating.style.top = y + 'px';
+
+      requestAnimationFrame(move);
+    }
+
+    move();
+
+    // Adjust on window resize
+    window.addEventListener('resize', () => {
+      x = Math.min(x, window.innerWidth - floating.offsetWidth);
+      y = Math.min(y, window.innerHeight - floating.offsetHeight);
+    });
+  </script>
 
 </body>
 </html>
