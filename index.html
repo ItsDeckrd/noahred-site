@@ -1,119 +1,111 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Noah Red - Y2K Landing</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Noah Red</title>
   <style>
-    /* Reset & font */
-    * { margin:0; padding:0; box-sizing:border-box; font-family:'Verdana','Arial',sans-serif; }
+    /* --- BASIC RESET --- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
     body {
+      font-family: 'Inter', Arial, sans-serif;
+      background: radial-gradient(circle at center, #ffcedf, #e1d3ff 40%, #d6f4ff);
+      color: #111;
       height: 100vh;
-      overflow: hidden;
-      background: linear-gradient(135deg, #0b0033, #330066);
-      color: #fff;
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
-      text-align: center;
-      position: relative;
+      overflow: hidden;
     }
 
-    /* Background glow shapes */
-    body::before, body::after {
-      content: "";
+    /* --- HEADER / NAV --- */
+    nav {
       position: absolute;
-      border-radius: 50%;
-      filter: blur(120px);
-      z-index: -1;
+      top: 20px;
+      right: 30px;
+      font-size: 0.9rem;
     }
 
-    body::before {
-      width: 500px;
-      height: 500px;
-      background: #ff00ff;
-      top: -100px;
-      left: -100px;
+    nav a {
+      margin-left: 15px;
+      text-decoration: none;
+      color: #333;
+      opacity: 0.8;
+      transition: opacity 0.3s ease;
     }
 
-    body::after {
-      width: 700px;
-      height: 700px;
-      background: #00ffff;
-      bottom: -150px;
-      right: -150px;
+    nav a:hover {
+      opacity: 1;
     }
 
-    /* Main content */
-    .container {
-      z-index: 2;
-      max-width: 600px;
-      padding: 2rem;
-      background: rgba(0,0,0,0.3);
-      border: 2px solid #00ffff;
-      border-radius: 20px;
-      box-shadow: 0 0 30px #00ffff, 0 0 60px #ff00ff;
+    /* --- MAIN CONTENT --- */
+    .content {
+      text-align: center;
+      backdrop-filter: blur(10px);
+      background: rgba(255, 255, 255, 0.2);
+      padding: 40px 60px;
+      border-radius: 25px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     }
 
     h1 {
-      font-size: 4rem;
-      color: #ff66ff;
-      text-shadow: 0 0 10px #ff66ff, 0 0 20px #ff00ff;
-      margin-bottom: 0.5rem;
+      font-size: 2.5rem;
+      letter-spacing: 1px;
     }
 
     h2 {
-      font-size: 2rem;
-      color: #00ffff;
-      text-shadow: 0 0 8px #00ffff, 0 0 16px #66ffff;
-      margin-bottom: 1rem;
-    }
-
-    p.quote {
-      font-size: 1.5rem;
-      font-style: italic;
-      color: #ccffff;
-      margin-bottom: 1.5rem;
-      text-shadow: 0 0 6px #ccffff;
-    }
-
-    a.email-link {
+      font-weight: 400;
       font-size: 1.2rem;
-      color: #ff00ff;
-      text-decoration: underline;
-      font-weight: bold;
-      transition: 0.3s;
+      color: #444;
+      margin-top: 5px;
     }
 
-    a.email-link:hover {
-      color: #ff99ff;
-      text-shadow: 0 0 10px #ff99ff, 0 0 20px #ff00ff;
+    .email {
+      margin-top: 25px;
+      display: inline-block;
+      background: #fff;
+      color: #000;
+      padding: 10px 20px;
+      border-radius: 50px;
+      font-size: 0.95rem;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     }
 
-    footer {
-      position: absolute;
-      bottom: 15px;
-      width: 100%;
-      text-align: center;
-      font-size: 0.85rem;
-      color: #66ffff;
-      text-shadow: 0 0 4px #66ffff;
+    .email:hover {
+      background: #000;
+      color: #fff;
+    }
+
+    /* --- SMALL DETAIL / ANIMATION --- */
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-8px); }
+    }
+
+    .content {
+      animation: float 6s ease-in-out infinite;
     }
   </style>
 </head>
 <body>
+  <nav>
+    <a href="#project1">Project 1</a>
+    <a href="#project2">Project 2</a>
+    <a href="#project3">Project 3</a>
+  </nav>
 
-  <div class="container">
+  <div class="content">
     <h1>Noah Jackson</h1>
-    <h2>Chai</h2>
-    <p class="quote">"I gave that chair the makers mark."</p>
-    <p>Email: <a class="email-link" href="mailto:contact@noah.red">contact@noah.red</a></p>
+    <h2>aka <strong>Deckrd</strong></h2>
+    <a href="mailto:contact@noah.red" class="email">contact@noah.red</a>
   </div>
-
-  <footer>
-    Built with AI, because I’d rather wrestle a porcupine than code.
-  </footer>
-
 </body>
 </html>
